@@ -22,30 +22,22 @@ namespace Lab8CSharp
         {
             try
             {
-                // Зчитуємо вміст вхідного файлу
                 string inputText = File.ReadAllText(inputFilePath);
 
-                // Розділяємо текст на слова
                 string[] words = Regex.Split(inputText, @"\W+");
 
-                // Фільтруємо слова за парністю довжини
                 List<string> filteredWords = new List<string>();
                 foreach (string word in words)
-                {
                     if (word.Length % 2 != 0)
-                    {
                         filteredWords.Add(word);
-                    }
-                }
 
-                // Записуємо фільтровані слова у вихідний файл
                 File.WriteAllLines(outputFilePath, filteredWords);
 
-                Console.WriteLine("Слова непарної довжини були вилучені у файл " + outputFilePath);
+                Console.WriteLine("Words of odd length were removed from the file:" + outputFilePath);
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Виникла помилка: " + ex.Message);
+                Console.WriteLine("Error: " + ex.Message);
             }
         }
     }

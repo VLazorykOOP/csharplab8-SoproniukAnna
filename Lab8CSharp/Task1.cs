@@ -30,11 +30,11 @@ namespace Lab8CSharp
 
                 File.WriteAllText(outputFilePath, processedText);
 
-                Console.WriteLine("Обробку завершено. Результати збережено у файлі: " + outputFilePath);
+                Console.WriteLine("Processing is complete. The results are saved in a file: " + outputFilePath);
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Виникла помилка: " + ex.Message);
+                Console.WriteLine("Error: " + ex.Message);
             }
         }
 
@@ -46,7 +46,7 @@ namespace Lab8CSharp
 
             string replacedText = Regex.Replace(text, pattern, "REPLACED_IP_ADDRESS");
 
-            replacedText = $"{count} IP-адрес у тексті:\n{replacedText}";
+            replacedText = $"{count} IP adress in text:\n{replacedText}";
             
             return replacedText;
         }

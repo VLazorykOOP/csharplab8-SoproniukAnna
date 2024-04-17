@@ -23,26 +23,22 @@ namespace Lab8CSharp
         {
             try
             {
-                // Зчитуємо вміст вхідного файлу
                 string inputText = File.ReadAllText(inputFilePath);
 
-                // Розділяємо текст на слова
                 string[] words = Regex.Split(inputText, @"\W+");
 
-                // Фільтруємо слова за заданою довжиною
                 List<string> filteredWords = new List<string>();
                 foreach (string word in words)
                     if (word.Length == length)
                         filteredWords.Add(word);
 
-                // Записуємо фільтровані слова у вихідний файл
                 File.WriteAllLines(outputFilePath, filteredWords);
 
-                Console.WriteLine($"Слова довжиною {length} були вилучені у файл {outputFilePath}");
+                Console.WriteLine($"Words of length {length}  were extracted to the file {outputFilePath}");
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Виникла помилка: " + ex.Message);
+                Console.WriteLine("Error: " + ex.Message);
             }
         }
     }
